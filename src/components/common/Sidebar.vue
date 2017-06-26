@@ -1,91 +1,46 @@
 <template>
-    <div class="sidebar">
-        <el-menu :default-active="onRoutes" class="el-menu-vertical-demo" unique-opened router>
-            <template v-for="item in items">
-                <template v-if="item.subs">
-                    <el-submenu :index="item.index">
-                        <template slot="title"><i :class="item.icon"></i>{{ item.title }}</template>
-                        <el-menu-item v-for="(subItem,i) in item.subs" :key="i" :index="subItem.index">{{ subItem.title }}
-                        </el-menu-item>
-                    </el-submenu>
-                </template>
-                <template v-else>
-                    <el-menu-item :index="item.index">
-                        <i :class="item.icon"></i>{{ item.title }}
-                    </el-menu-item>
-                </template>
-            </template>
-        </el-menu>
-    </div>
+<div  class="sidebar">
+
+    <el-menu class="el-menu-vertical-demo" default-active="onRoutes"  @open="handleOpen" @close="handleClose" theme="dark" unique-opened router>
+
+<el-menu-item index="basetable">导航菜单</el-menu-item>
+<el-menu-item index="vuetable">IOMAT</el-menu-item>
+<el-menu-item index="baseform">用户管理</el-menu-item>
+<el-menu-item index="vueeditor">企业机器人管理</el-menu-item>
+<template>
+      <el-submenu index="5">
+          <template slot="title" index="5-0">财务管理</template>
+          <el-menu-item index="upload" ><i class="el-icon-star-on"></i>交易中心</el-menu-item>
+          <el-menu-item index="markdown"><i class="el-icon-star-on"></i>提现管理</el-menu-item>
+      </el-submenu>
 </template>
 
+<el-menu-item index="basecharts">朋友圈管理</el-menu-item>
+<el-menu-item index="drag">AI直播管理</el-menu-item>
+     
+</el-menu>
+
+</div>
+</template>
 <script>
-    export default {
-        data() {
-            return {
-                items: [
-                    {
-                        icon: 'el-icon-setting',
-                        index: 'readme',
-                        title: '自述'
-                    },
-                    {
-                        icon: 'el-icon-menu',
-                        index: '2',
-                        title: '表格',
-                        subs: [
-                            {
-                                index: 'basetable',
-                                title: '基础表格'
-                            },
-                            {
-                                index: 'vuetable',
-                                title: 'Vue表格组件'
-                            }
-                        ]
-                    },
-                    {
-                        icon: 'el-icon-date',
-                        index: '3',
-                        title: '表单',
-                        subs: [
-                            {
-                                index: 'baseform',
-                                title: '基本表单'
-                            },
-                            {
-                                index: 'vueeditor',
-                                title: '编辑器'
-                            },
-                            {
-                                index: 'markdown',
-                                title: 'markdown'
-                            },
-                            {
-                                index: 'upload',
-                                title: '文件上传'
-                            }
-                        ]
-                    },
-                    {
-                        icon: 'el-icon-star-on',
-                        index: 'basecharts',
-                        title: '图表'
-                    },
-                    {
-                        icon: 'el-icon-upload2',
-                        index: 'drag',
-                        title: '拖拽'
-                    }
-                ]
-            }
-        },
-        computed:{
+  export default {
+    methods: {
+      handleOpen(key, keyPath) {
+        console.log(key, keyPath);
+      },
+      handleClose(key, keyPath) {
+        console.log(key, keyPath);
+      },
+      jyzx(){
+
+      },
+      computed:{
             onRoutes(){
                 return this.$route.path.replace('/','');
             }
         }
     }
+  }
 </script>
 
 <style scoped>
