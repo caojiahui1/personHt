@@ -3,9 +3,9 @@
 
     <el-menu class="el-menu-vertical-demo" default-active="onRoutes"  @open="handleOpen" @close="handleClose" theme="dark" unique-opened router>
 
-<el-menu-item index="basetable">导航菜单</el-menu-item>
+<el-menu-item index="baseform">导航菜单</el-menu-item>
 <el-menu-item index="vuetable">IOMAT</el-menu-item>
-<el-menu-item index="baseform">用户管理</el-menu-item>
+<el-menu-item index="basetable">用户管理</el-menu-item>
 <el-menu-item index="vueeditor">企业机器人管理</el-menu-item>
 <template>
       <el-submenu index="5">
@@ -16,7 +16,7 @@
 </template>
 
 <el-menu-item index="basecharts">朋友圈管理</el-menu-item>
-<el-menu-item index="drag">AI直播管理</el-menu-item>
+<el-menu-item index="drag">管理员管理</el-menu-item>
      
 </el-menu>
 
@@ -47,7 +47,7 @@
     .sidebar{
         display: block;
         position: absolute;
-        width: 250px;
+        width: 200px;
         left: 0;
         top: 70px;
         bottom:0;
@@ -56,4 +56,5 @@
     .sidebar > ul {
         height:100%;
     }
+
 </style>
